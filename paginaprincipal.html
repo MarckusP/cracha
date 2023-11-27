@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <nav class="top-bar">
+        <div class="image">
+            <img src="./img/Logotechnocerto.png" alt="">
+        </div>
+        <span class="form">
+            <span>
+                <label class="title-form" for="lista">Confecção de Crachá</label>
+            </span>
+            <div class="bar-nav">
+
+                <span>
+                    <label class="campo" for="nome">Nome</label><br>
+                    <input class="input-box" id="nome" type="text" name="nome" value=""
+                        placeholder="Nome do colaborador">
+                </span>
+
+                <span>
+                    <label class="campo" for="departamento">Departamento</label><br>
+                    <input class="input-box" id="departamento" type="text" name="departamento" value=""
+                        placeholder="Nome do departamento" maxlength="15">
+                </span>
+
+                <span>
+
+                    <label class="campo" id="labelfile" for="Foto 3x4">Foto 3x4:</label><br>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+
+                </span>
+            </div>
+        </span>
+
+        <span>
+            <div class="button">
+
+                <div>
+                    <button type="submit" id="enviar">
+                        Cadastrar
+                    </button>
+                </div>
+                <div>
+                    <button type="submit" id="delete">
+                        Apagar
+                    </button>
+                </div>
+                <div>
+                    <button type="submit" id="printAll">
+                        Imprimir
+                    </button>
+                </div>
+
+            </div>
+        </span>
+    </nav>
+
+    <div class="Organizer" id="Organizer">
+
+
+    </div>
+    <script type="module" src="./js/index.js"></script>
+    </script>
+
+    
+</body>
+
+</html>

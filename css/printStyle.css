@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'UnimedSans2020-Bd';
+    src: url('../fonts/UnimedSans2020-Bd.otf') format('opentype')
+}
+
+@font-face {
+    font-family: 'UnimedSans2020-Rg';
+    src: url('../fonts/UnimedSans2020-Rg.otf') format('opentype')
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: 'UnimedSans2020-Rg';
+}
+
+.imagem {
+    width: 400px;
+    padding: 2px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+img {
+    max-width: 400px;
+    height: auto;
+}
+
+.crachanome {
+    position: absolute;
+    top: 465px;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+    color: #134b47;
+    font-family: 'UnimedSans2020-Bd';
+}
+
+.crachasetor {
+    position: absolute;
+    top: 516px;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    color: #2a9959;
+    font-family: 'UnimedSans2020-Rg';
+}
+
+
+
+.crachauser {
+    width: 228px;
+    height: 270px;
+    position: absolute;
+    border-radius: 29px;
+    top: 195px;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    color: #2a9959;
+}

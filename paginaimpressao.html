@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>impressão</title>
+        <link rel="stylesheet" href="./css/printStyle.css">
+    </head>
+    
+    <body>
+        <div class="central">
+            <div class="imagem">
+                <img id="imagemPreview" src="./img/Frente.png" alt="Imagem">
+                <p class="crachanome" id="Nome">COLABORADOR</p>
+                <p class="crachasetor" id="departamento">DEPARTAMENTO</p>
+                <img src="./img/User.jpg" class="crachauser" id="imguser">
+            </div>
+            <div class="imagem">
+                <img id="imagemPreview" src="./img/Verso.png" alt="Imagem">
+            </div>
+        </div>
+    </body>
+    <script>
+        
+
+
+    // Função para abrir a caixa de diálogo de impressão após o carregamento da página
+    window.onload = function () {
+        window.print();
+    };
+</script>
+    </html>
