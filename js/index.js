@@ -9,44 +9,33 @@ const loadingButtonRemove = () => {
     button.innerHTML = 'Cadastrar';
 }
 
-function importarForm() {
-    console.log("Importando o form")
 
-    // alert("Voce está aqui");
-    nome = document.getElementById('nome').value
-    departamento = document.getElementById('departamento').value
-    foto = document.getElementById('foto').files[0];
-
-    localStorage.setItem(nome, departamento, URL.createObjectURL(foto))
-
-    CreateCracha(nome, departamento, URL.createObjectURL(foto))
-    loadingButtonRemove();
-}
-
-
-
+//Parte do codigo voltado a erro no preenchimento dos dados 
+//função que testa se os campos foram preenchidos
 const validarDados = (event) => {
-    // console.log("Validadndo dados")
     event.preventDefault();
     loadingButton();
-
+    //Coletando os dados 
     nome = document.getElementById('nome').value
     departamento = document.getElementById('departamento').value
     foto = document.getElementById('foto').files[0];
 
+    //Validando se todos os dados estão preenchidos
     if (!nome || !departamento || !foto) {
+        //Caso não preenchidos chama a função que mostra a mensagem de erro
         createErroMessages()
+        //Dispara um evento para fechar a mensagem ao clicar no botão
         document.getElementById('fecharErro').addEventListener('click', removeErro);
     } else {
-        // console.log("Passou no if")
-        importarForm();
+        //Caso os dados estejam completos e passa os dados do input para apresentação dos crachas
+        localStorage.setItem(nome, departamento, URL.createObjectURL(foto))
+        CreateCracha(nome, departamento, URL.createObjectURL(foto))
+        
     }
 
     loadingButtonRemove();
 }
-
-
-
+//Função para criar a mensagem direto na tela
 function createErroMessages() {
 
     let contador
@@ -74,7 +63,7 @@ function createErroMessages() {
     }
 
 }
-
+//função remover o botão 
 const removeErro = (event) => {
     event.preventDefault();
     loadingButton();
@@ -89,8 +78,11 @@ const removeErro = (event) => {
     loadingButtonRemove();
 
 }
+//Fim da parte do codigo voltado a erro no preenchimento dos dados 
 
+//Função para criação da Div com os dados informado no input
 function CreateCracha(nome, departamento, foto) {
+    loadingButton;
     let cracha = document.createElement("div")
     cracha.className = "Cracha"
 
@@ -100,6 +92,10 @@ function CreateCracha(nome, departamento, foto) {
     let image = document.createElement("img")
     image.id = "imagemPreview"
     image.src = "./img/frente.png";
+
+    let imageVerso = document.createElement("img")
+    imageVerso.id = "versoPreview"
+    imageVerso.src = "./img/Verso.png";
 
     let divNome = document.createElement("div")
     divNome.className = "crachanome"
@@ -125,8 +121,9 @@ function CreateCracha(nome, departamento, foto) {
     imageUser.id = "crachauser"
     imageUser.src = foto;
 
-    cracha.appendChild(crachaBase);
 
+
+    cracha.appendChild(crachaBase);
     crachaBase.appendChild(image);
     crachaBase.appendChild(divNome);
     divNome.appendChild(nomeCracha);
@@ -137,12 +134,15 @@ function CreateCracha(nome, departamento, foto) {
 
     let bodycad = document.getElementById("Organizer");
     bodycad.appendChild(cracha)
+    bodycad.appendChild(imageVerso)
+
+    loadingButtonRemove;
 
 }
 
-document.getElementById('enviar').addEventListener('click', validarDados);
 
 
+//Função para apagar o ultimo crachar preenchido em caso de algum erro
 const apagaUltimo = (event) => {
     event.preventDefault();
     loadingButton();
@@ -157,18 +157,22 @@ const apagaUltimo = (event) => {
     loadingButtonRemove();
 }
 
-
-document.getElementById('delete').addEventListener('click', apagaUltimo);
-
 const imprimeLista = (event) => {
     event.preventDefault();
     loadingButton();
-    console.log("imprimir")
-
-
+    console.log("teste")
+    window.print() 
 
     loadingButtonRemove();
 }
 
-document.getElementById('printAll').addEventListener('click', imprimeLista);
+document.querySelector('#printAll').addEventListener('click', imprimeLista);
 
+
+
+
+//Evento que dispara a criação dos crachas 
+document.getElementById('enviar').addEventListener('click', validarDados);
+
+//Evento que dispara para apagar o ultimo cracha gerado
+document.getElementById('delete').addEventListener('click', apagaUltimo);

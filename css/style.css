@@ -212,6 +212,10 @@ body .Cracha {
     display: flex;
 }
 
+#versoPreview {
+    display: none;
+}
+
 .crachaPreview {
     position: relative;
     display: flex;
@@ -221,6 +225,7 @@ body .Cracha {
 .crachanome {
     position: absolute;
     top: 121px;
+    text-transform: uppercase;
     width: 180px;
     text-align: center;
     font-size: 14px;
@@ -232,6 +237,7 @@ body .Cracha {
     position: absolute;
     top: 132px;
     width: 180px;
+    text-transform: uppercase;
     text-align: center;
     font-size: 8px;
     color: #2a9959;
@@ -247,4 +253,43 @@ body .Cracha {
     height: 136px;
     border-radius: 10px;
 
+}
+
+
+
+
+@media print {
+
+
+    .top-bar {
+        display: none
+    }
+
+    body .Cracha {
+        margin: 0;
+        width: 53.98mm;
+        height: 85.99mm;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border-radius: none;
+        box-shadow: none;
+        animation: none;
+    }
+
+    #imagemPreview {
+        width: 53.98mm;
+        height: 85.99mm;
+        border-radius: 0px;
+        display: flex;
+    }
+
+    #versoPreview {
+        width: 53.98mm;
+        height: 85.99mm;
+        border-radius: 0px;
+        display: flex;
+    }
 }
