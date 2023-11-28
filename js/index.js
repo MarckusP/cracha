@@ -9,31 +9,88 @@ const loadingButtonRemove = () => {
     button.innerHTML = 'Cadastrar';
 }
 
-const importarForm = (event) => {
-    console.log("oi")
-    event.preventDefault();
-    loadingButton();
+function importarForm() {
+    console.log("Importando o form")
 
     // alert("Voce está aqui");
     nome = document.getElementById('nome').value
     departamento = document.getElementById('departamento').value
     foto = document.getElementById('foto').files[0];
 
-
     localStorage.setItem(nome, departamento, URL.createObjectURL(foto))
-    
-    CreatPrint(nome, departamento, URL.createObjectURL(foto))
+
+    CreateCracha(nome, departamento, URL.createObjectURL(foto))
     loadingButtonRemove();
-
-
-
 }
 
 
 
+const validarDados = (event) => {
+    // console.log("Validadndo dados")
+    event.preventDefault();
+    loadingButton();
 
-function CreatPrint(nome, departamento, foto) {
-    console.log(foto)
+    nome = document.getElementById('nome').value
+    departamento = document.getElementById('departamento').value
+    foto = document.getElementById('foto').files[0];
+
+    if (!nome || !departamento || !foto) {
+        createErroMessages()
+        document.getElementById('fecharErro').addEventListener('click', removeErro);
+    } else {
+        // console.log("Passou no if")
+        importarForm();
+    }
+
+    loadingButtonRemove();
+}
+
+
+
+function createErroMessages() {
+
+    let contador
+    contador = document.querySelectorAll('.errorMensage')
+
+    if (contador.length > 0) {
+
+
+    } else {
+        let erro = document.createElement('div');
+        erro.className = 'errorMensage'
+
+        let p = document.createElement("p")
+        p.textContent = "OS DADOS NÃO FORAM INSERIDOS CORRETAMENTE, FAVOR VERIFICAR"
+
+        let fechar = document.createElement('button')
+        fechar.id = "fecharErro"
+        fechar.textContent = "Fechar"
+
+        erro.appendChild(p)
+        erro.appendChild(fechar)
+
+        let bodycad = document.querySelector('.overlayErro');
+        bodycad.appendChild(erro)
+    }
+
+}
+
+const removeErro = (event) => {
+    event.preventDefault();
+    loadingButton();
+    let contador
+    contador = document.querySelectorAll('.errorMensage')
+
+
+    let final = contador.length - 1
+
+
+    contador[final].parentNode.removeChild(contador[final])
+    loadingButtonRemove();
+
+}
+
+function CreateCracha(nome, departamento, foto) {
     let cracha = document.createElement("div")
     cracha.className = "Cracha"
 
@@ -83,7 +140,7 @@ function CreatPrint(nome, departamento, foto) {
 
 }
 
-document.getElementById('enviar').addEventListener('click', importarForm);
+document.getElementById('enviar').addEventListener('click', validarDados);
 
 
 const apagaUltimo = (event) => {

@@ -7,6 +7,7 @@
     font-family: 'UnimedSans2020-Rg';
     src: url('../fonts/UnimedSans2020-Rg.otf') format('opentype')
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -29,16 +30,16 @@
 body {
     width: 100%;
     height: 100vh;
-    background-color: #a4d8de;
+    background-color: #ffffff;
     font-family: 'UnimedSans2020-Rg';
 }
 
 .top-bar {
     margin: 0.5%;
     width: 1800;
-    height: 110px;
+    height: 120px;
     border-radius: 20px;
-    background: #00985c;
+    background: #00995D;
     color: white;
     display: flex;
     align-items: center;
@@ -161,6 +162,44 @@ body .Cracha {
 }
 
 
+.overlayErro {
+    width: 100%;
+    display: flex;
+    z-index: 9999;
+    justify-content: center;
+}
+
+.errorMensage {
+    width: 70%;
+    margin: 1%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(19, 75, 71, 0.323);
+}
+
+.errorMensage p {
+    text-align: center;
+    margin: .3em;
+    font-weight: 700;
+    font-size: .9em;
+    font-family: 'UnimedSans2020-Rg';
+}
+
+.errorMensage button {
+    width: 10%;
+    height: 70%;
+    font-size: .9em;
+    margin-left: 1%;
+    font-family: 'UnimedSans2020-Rg';
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(255, 135, 135);
+    cursor: pointer;
+}
+
 
 
 /* Crachá layout */
@@ -173,7 +212,7 @@ body .Cracha {
     display: flex;
 }
 
-.crachaPreview{
+.crachaPreview {
     position: relative;
     display: flex;
     justify-content: center;
@@ -207,5 +246,5 @@ body .Cracha {
     width: 115px;
     height: 136px;
     border-radius: 10px;
-    
+
 }

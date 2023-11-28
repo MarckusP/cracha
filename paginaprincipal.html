@@ -17,26 +17,32 @@
             <span>
                 <label class="title-form" for="lista">Confecção de Crachá</label>
             </span>
-            <div class="bar-nav">
 
+            <div class="bar-nav">
                 <span>
                     <label class="campo" for="nome">Nome</label><br>
                     <input class="input-box" id="nome" type="text" name="nome" value=""
-                        placeholder="Nome do colaborador">
+                        placeholder="Nome do colaborador" maxlength="30" required>
                 </span>
 
                 <span>
                     <label class="campo" for="departamento">Departamento</label><br>
                     <input class="input-box" id="departamento" type="text" name="departamento" value=""
-                        placeholder="Nome do departamento" maxlength="15">
+                        placeholder="Nome do departamento" maxlength="15" required>
                 </span>
 
                 <span>
 
                     <label class="campo" id="labelfile" for="Foto 3x4">Foto 3x4:</label><br>
-                    <input type="file" id="foto" name="foto" accept="image/*">
+                    <input type="file" id="foto" name="foto" accept="image/*" required>
 
                 </span>
+            </div>
+            <div class="overlayErro">
+                <!-- <div class="errorMessage">
+                    <p>OS DADOS NÃO FORAM INSERIDOS CORRETAMENTE, FAVOR VERIFICAR</p>
+                    <button id="fecharErro">Fechar</button>
+                </div> -->
             </div>
         </span>
 
@@ -61,16 +67,16 @@
 
             </div>
         </span>
+        
     </nav>
 
-    <div class="Organizer" id="Organizer">
+    <div class="Organizer" id="Organizer"></div>
 
-
-    </div>
+    
     <script type="module" src="./js/index.js"></script>
     </script>
 
-    
+
 </body>
 
 </html>
