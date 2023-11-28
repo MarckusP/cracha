@@ -170,8 +170,8 @@ body .Cracha {
 }
 
 .errorMensage {
-    width: 70%;
-    margin: 1%;
+    width: 72%;
+    margin: .9%;
     border-radius: 20px;
     display: flex;
     flex-direction: row;
@@ -189,10 +189,10 @@ body .Cracha {
 }
 
 .errorMensage button {
-    width: 10%;
+    width: 12%;
     height: 70%;
     font-size: .9em;
-    margin-left: 1%;
+    margin-left: 2%;
     font-family: 'UnimedSans2020-Rg';
     border: none;
     border-radius: 20px;
