@@ -255,6 +255,28 @@ body .Cracha {
 
 }
 
+/* Crachá layout  Delete*/
+
+.deleteVision{
+    width: 200px;
+    height: 320px;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.093);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteVision img{
+    width: 70px;
+    height: 70px;
+    color: #e65858;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.379);
+    cursor: pointer;
+}
 
 
 

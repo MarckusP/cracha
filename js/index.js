@@ -16,20 +16,23 @@ const validarDados = (event) => {
     event.preventDefault();
     loadingButton();
     //Coletando os dados 
-    nome = document.getElementById('nome').value
-    departamento = document.getElementById('departamento').value
-    foto = document.getElementById('foto').files[0];
+    nome = document.getElementById('nome');
+    departamento = document.getElementById('departamento');
+    foto = document.getElementById('foto');
 
     //Validando se todos os dados estão preenchidos
-    if (!nome || !departamento || !foto) {
+    if (!nome.value || !departamento.value || !foto.files[0]) {
         //Caso não preenchidos chama a função que mostra a mensagem de erro
         createErroMessages()
         //Dispara um evento para fechar a mensagem ao clicar no botão
         document.getElementById('fecharErro').addEventListener('click', removeErro);
     } else {
         //Caso os dados estejam completos e passa os dados do input para apresentação dos crachas
-        localStorage.setItem(nome, departamento, URL.createObjectURL(foto))
-        CreateCracha(nome, departamento, URL.createObjectURL(foto))
+        localStorage.setItem(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
+        CreateCracha(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
+        nome.value = ""
+        departamento.value = ""
+        foto.value = ""
         
     }
 
@@ -146,8 +149,9 @@ function CreateCracha(nome, departamento, foto) {
 const apagaUltimo = (event) => {
     event.preventDefault();
     loadingButton();
-    let contador
-    contador = document.querySelectorAll('.Cracha')
+
+    
+    let contador = document.querySelectorAll('.Cracha')
 
 
     let final = contador.length - 1
