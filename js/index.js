@@ -87,6 +87,7 @@ const removeErro = (event) => {
 
 //Função para criação da Div com os dados informado no input
 function CreateCracha(nome, departamento, foto) {
+
     loadingButton;
     let cracha = document.createElement("div");
     cracha.className = "Cracha";
@@ -183,6 +184,9 @@ function delSelect() {
 
     for (let i = 0; i < botoes.length; i++) {
         botoes[i].addEventListener('click', function () {
+            msgDelete(i);
+            let result = 
+
             contcracha[i].parentNode.removeChild(contcracha[i])
             contverso[i].parentNode.removeChild(contverso[i])
 
@@ -191,7 +195,40 @@ function delSelect() {
 
 }
 
-delSelect();
+
+
+function msgDelete(indice) {
+
+    let nome = document.querySelectorAll('#crachanome').textContent;
+
+
+    let msg = document.createElement('div');
+    msg.className = "msgDelete";
+
+
+    let msgtxt = document.createElement('p');
+    msgtxt.className = 'textdelete';
+    msgtxt.textContent = `Deseja realmente exluir o cracha de` + nome[i];
+    msg.appendChild(msgtxt)
+
+    let buttons = document.createElement('div');
+    buttons.className = "btnmsg";
+    msg.appendChild(buttons);
+
+    let b_yes = document.createElement('button');
+    b_yes.id = 'msgY';
+    b_yes.textContent = "Sim";
+    buttons.appendChild(b_yes)
+
+    let b_not = document.createElement('button');
+    b_not.id = 'msgN';
+    b_not.textContent = "Não";
+    buttons.appendChild(b_not);
+
+    let layoutdelete = document.querySelector(".optionVision");
+    layoutdelete[i].appendChild(msg);
+
+}
 
 
 //Evento que dispara a criação dos crachas 

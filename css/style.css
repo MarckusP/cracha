@@ -159,6 +159,7 @@ body .Cracha {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    transition: all 0.2s ease-in-out;
 }
 
 
@@ -257,7 +258,7 @@ body .Cracha {
 
 /* Crachá layout  Delete*/
 
-.optionVision{
+.optionVision {
     width: 200px;
     height: 320px;
     border-radius: 15px;
@@ -267,7 +268,7 @@ body .Cracha {
     flex-direction: row-reverse;
 }
 
-.buttonOption{
+.buttonOption {
     width: 27px;
     height: 27px;
     margin: 10px;
@@ -280,19 +281,85 @@ body .Cracha {
     justify-content: center;
 }
 
-.buttonOption img{
+.buttonOption img {
     width: 60%
 }
 
 
 
-.buttonOption:hover{
+
+
+.buttonOption:hover {
     width: 33px;
     height: 33px;
     margin: 8px;
 }
 
+.buttonOption {
+    display: none
+}
 
+.msgDelete {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.416);
+    border-radius: 15px;
+    
+}
+
+.textdelete {
+    margin: 5%;
+    margin-top: 10%;
+    color: #fff;
+    font-family: 'UnimedSans2020-Rg';
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    margin-bottom: 15%;
+}
+
+.btnmsg {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btnmsg button {
+    width: 30%;
+    height: 90%;
+    margin: 5%;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    filter: brightness( 90% );
+    transition: all 0.2s ease-in-out;
+}
+
+.btnmsg #msgY {
+    background-color: rgb(183, 50, 50);
+}
+
+.btnmsg #msgN {
+    background-color: rgb(50, 183, 103);
+}
+
+.btnmsg button:hover {
+    width: 31%;
+    height: 91%;
+    margin: 4.5%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    filter: brightness( 105% );
+
+}
 
 @media print {
 
@@ -315,7 +382,7 @@ body .Cracha {
         animation: none;
     }
 
-    .optionVision{
+    .optionVision {
         display: none;
     }
 
