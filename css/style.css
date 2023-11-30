@@ -257,25 +257,39 @@ body .Cracha {
 
 /* Crachá layout  Delete*/
 
-.deleteVision{
+.optionVision{
     width: 200px;
     height: 320px;
     border-radius: 15px;
     position: absolute;
     z-index: 99;
-    background-color: rgba(0, 0, 0, 0.093);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.buttonOption{
+    width: 27px;
+    height: 27px;
+    margin: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.328);
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.deleteVision img{
-    width: 70px;
-    height: 70px;
-    color: #e65858;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.379);
-    cursor: pointer;
+.buttonOption img{
+    width: 60%
+}
+
+
+
+.buttonOption:hover{
+    width: 33px;
+    height: 33px;
+    margin: 8px;
 }
 
 
@@ -299,6 +313,10 @@ body .Cracha {
         border-radius: none;
         box-shadow: none;
         animation: none;
+    }
+
+    .optionVision{
+        display: none;
     }
 
     #imagemPreview {

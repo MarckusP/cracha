@@ -1,3 +1,5 @@
+
+
 let nome, departamento, foto
 
 const button = document.getElementById('enviar');
@@ -20,21 +22,24 @@ const validarDados = (event) => {
     departamento = document.getElementById('departamento');
     foto = document.getElementById('foto');
 
-    //Validando se todos os dados estão preenchidos
-    if (!nome.value || !departamento.value || !foto.files[0]) {
-        //Caso não preenchidos chama a função que mostra a mensagem de erro
-        createErroMessages()
-        //Dispara um evento para fechar a mensagem ao clicar no botão
-        document.getElementById('fecharErro').addEventListener('click', removeErro);
-    } else {
-        //Caso os dados estejam completos e passa os dados do input para apresentação dos crachas
-        localStorage.setItem(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
-        CreateCracha(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
-        nome.value = ""
-        departamento.value = ""
-        foto.value = ""
-        
-    }
+    localStorage.setItem(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
+    CreateCracha(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
+
+    // //Validando se todos os dados estão preenchidos
+    // if (!nome.value || !departamento.value || !foto.files[0]) {
+    //     //Caso não preenchidos chama a função que mostra a mensagem de erro
+    //     createErroMessages()
+    //     //Dispara um evento para fechar a mensagem ao clicar no botão
+    //     document.getElementById('fecharErro').addEventListener('click', removeErro);
+    // } else {
+    //     //Caso os dados estejam completos e passa os dados do input para apresentação dos crachas
+    //     localStorage.setItem(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
+    //     CreateCracha(nome.value, departamento.value, URL.createObjectURL(foto.files[0]))
+    //     nome.value = ""
+    //     departamento.value = ""
+    //     foto.value = ""
+
+    // }
 
     loadingButtonRemove();
 }
@@ -86,97 +91,114 @@ const removeErro = (event) => {
 //Função para criação da Div com os dados informado no input
 function CreateCracha(nome, departamento, foto) {
     loadingButton;
-    let cracha = document.createElement("div")
-    cracha.className = "Cracha"
+    let cracha = document.createElement("div");
+    cracha.className = "Cracha";
 
-    let crachaBase = document.createElement("div")
-    crachaBase.className = "crachaPreview"
+    let contador = document.querySelectorAll('.Cracha');
 
-    let image = document.createElement("img")
-    image.id = "imagemPreview"
+    let options = document.createElement("div");
+    options.className = "optionVision";
+    cracha.appendChild(options);
+
+    let btndel = document.createElement("button");
+    btndel.type = "button";
+    btndel.className = "buttonOption";
+    btndel.id = "botaoDel";
+    btndel.value = contador.length
+    options.appendChild(btndel);
+
+    let delicon = document.createElement("img");
+    delicon.id = "delcracha";
+    delicon.src = "/img/Delete.svg";
+    btndel.appendChild(delicon);
+
+    let crachaBase = document.createElement("div");
+    crachaBase.className = "crachaPreview";
+    cracha.appendChild(crachaBase);
+
+    let image = document.createElement("img");
+    image.id = "imagemPreview";
     image.src = "./img/frente.png";
+    crachaBase.appendChild(image);
 
-    let imageVerso = document.createElement("img")
-    imageVerso.id = "versoPreview"
+    let imageVerso = document.createElement("img");
+    imageVerso.id = "versoPreview";
     imageVerso.src = "./img/Verso.png";
 
-    let divNome = document.createElement("div")
-    divNome.className = "crachanome"
+    let divNome = document.createElement("div");
+    divNome.className = "crachanome";
+    crachaBase.appendChild(divNome);
 
-    let nomeCracha = document.createElement("p")
-    nomeCracha.className = "crachanome"
-    nomeCracha.id = "crachanome"
+    let nomeCracha = document.createElement("p");
+    nomeCracha.className = "crachanome";
+    nomeCracha.id = "crachanome";
     nomeCracha.textContent = nome;
+    divNome.appendChild(nomeCracha);
 
-    let divSetor = document.createElement("div")
+    let divSetor = document.createElement("div");
     divSetor.className = "crachasetor"
+    crachaBase.appendChild(divSetor);
 
-    let setorCracha = document.createElement("p")
+    let setorCracha = document.createElement("p");
     setorCracha.className = "crachasetor"
     setorCracha.id = "crachasetor"
     setorCracha.textContent = departamento;
-
-    let user = document.createElement("div")
-    user.className = "crachauser"
-
-    let imageUser = document.createElement("img")
-    imageUser.className = "crachauser"
-    imageUser.id = "crachauser"
-    imageUser.src = foto;
-
-
-
-    cracha.appendChild(crachaBase);
-    crachaBase.appendChild(image);
-    crachaBase.appendChild(divNome);
-    divNome.appendChild(nomeCracha);
-    crachaBase.appendChild(divSetor);
     divSetor.appendChild(setorCracha);
+
+    let user = document.createElement("div");
+    user.className = "crachauser";
     crachaBase.appendChild(user);
+
+    let imageUser = document.createElement("img");
+    imageUser.className = "crachauser";
+    imageUser.id = "crachauser";
+    imageUser.src = foto;
     user.appendChild(imageUser);
 
+
     let bodycad = document.getElementById("Organizer");
-    bodycad.appendChild(cracha)
-    bodycad.appendChild(imageVerso)
+    bodycad.appendChild(cracha);
+    bodycad.appendChild(imageVerso);
+    select();
 
     loadingButtonRemove;
 
 }
 
 
-
-//Função para apagar o ultimo crachar preenchido em caso de algum erro
-const apagaUltimo = (event) => {
-    event.preventDefault();
-    loadingButton();
-
-    
-    let contador = document.querySelectorAll('.Cracha')
-
-
-    let final = contador.length - 1
-
-
-    contador[final].parentNode.removeChild(contador[final])
-    loadingButtonRemove();
-}
-
 const imprimeLista = (event) => {
     event.preventDefault();
     loadingButton();
     console.log("teste")
-    window.print() 
+    window.print()
 
     loadingButtonRemove();
 }
 
 document.querySelector('#printAll').addEventListener('click', imprimeLista);
 
+function select() {
 
+    let botoes = document.querySelectorAll('#botaoDel')
+    let contcracha = document.querySelectorAll('.Cracha')
+    let contverso = document.querySelectorAll('#versoPreview')
+
+
+
+    for (let i = 0; i < botoes.length; i++) {
+        botoes[i].addEventListener('click', function () {
+            contcracha[i].parentNode.removeChild(contcracha[i])
+            contverso[i].parentNode.removeChild(contverso[i])
+
+        })
+    }
+
+}
+
+select();
 
 
 //Evento que dispara a criação dos crachas 
 document.getElementById('enviar').addEventListener('click', validarDados);
 
 //Evento que dispara para apagar o ultimo cracha gerado
-document.getElementById('delete').addEventListener('click', apagaUltimo);
